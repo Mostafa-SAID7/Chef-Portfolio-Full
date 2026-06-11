@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Favicon Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            background: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 { color: #E8C547; }
+        canvas {
+            border: 1px solid #ddd;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        button {
+            background: #E8C547;
+            color: #0A0A0A;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 10px 5px;
+        }
+        button:hover {
+            background: #F0D060;
+        }
+        .preview {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .size-label {
+            text-align: center;
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Favicon Generator for FullyPorto</h1>
+        <p>This tool generates favicon images in multiple sizes. Click the buttons to download.</p>
+        
+        <div class="preview">
+            <div>
+                <canvas id="icon16" width="16" height="16"></canvas>
+                <div class="size-label">16×16 (favicon.ico)</div>
+                <button onclick="downloadIcon(16)">Download 16×16</button>
+            </div>
+            <div>
+                <canvas id="icon32" width="32" height="32"></canvas>
+                <div class="size-label">32×32 (favicon.ico)</div>
+                <button onclick="downloadIcon(32)">Download 32×32</button>
+            </div>
+            <div>
+                <canvas id="icon180" width="180" height="180"></canvas>
+                <div class="size-label">180×180 (Apple Touch)</div>
+                <button onclick="downloadIcon(180)">Download 180×180</button>
+            </div>
+            <div>
+                <canvas id="icon192" width="192" height="192"></canvas>
+                <div class="size-label">192×192 (Android)</div>
+                <button onclick="downloadIcon(192)">Download 192×192</button>
+            </div>
+            <div>
+                <canvas id="icon512" width="512" height="512"></canvas>
+                <div class="size-label">512×512 (PWA)</div>
+                <button onclick="downloadIcon(512)">Download 512×512</button>
+            </div>
+        </div>
+
+        <h3>Instructions:</h3>
+        <ol>
+            <li>Download all the sizes above</li>
+            <li>For favicon.ico: Combine 16×16 and 32×32 using an online ICO converter</li>
+            <li>Rename 180×180 to <code>apple-touch-icon.png</code></li>
+            <li>Rename 192×192 to <code>icon-192.png</code></li>
+            <li>Rename 512×512 to <code>icon-512.png</code></li>
+            <li>Place all files in the <code>public</code> folder</li>
+        </ol>
+    </div>
+
+    <script>
+        function drawIcon(size) {
+            const canvas = document.getElementById('icon' + size);
+            const ctx = canvas.getContext('2d');
+            
+            // Background
+            ctx.fillStyle = '#0A0A0A';
+            const radius = size * 0.19;
+            roundRect(ctx, 0, 0, size, size, radius);
+            ctx.fill();
+            
+            // Gradient for M
+            const gradient = ctx.createLinearGradient(0, 0, size, size);
+            gradient.addColorStop(0, '#E8C547');
+            gradient.addColorStop(0.5, '#F0D060');
+            gradient.addColorStop(1, '#C9A832');
+            
+            // Draw M
+            ctx.fillStyle = gradient;
+            ctx.font = `900 ${size * 0.56}px Arial Black, Arial, sans-serif`;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('M', size / 2, size / 2 + size * 0.04);
+            
+            // Decorative dot
+            ctx.fillStyle = '#E8C547';
+            ctx.globalAlpha = 0.8;
+            ctx.beginPath();
+            ctx.arc(size * 0.8, size * 0.25, size * 0.047, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.globalAlpha = 1;
+        }
+
+        function roundRect(ctx, x, y, width, height, radius) {
+            ctx.beginPath();
+            ctx.moveTo(x + radius, y);
+            ctx.lineTo(x + width - radius, y);
+            ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
+            ctx.lineTo(x + width, y + height - radius);
+            ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
+            ctx.lineTo(x + radius, y + height);
+            ctx.quadraticCurveTo(x, y + height, x, y + height - radius);
+            ctx.lineTo(x, y + radius);
+            ctx.quadraticCurveTo(x, y, x + radius, y);
+            ctx.closePath();
+        }
+
+        function downloadIcon(size) {
+            const canvas = document.getElementById('icon' + size);
+            const link = document.createElement('a');
+            link.download = `icon-${size}.png`;
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        }
+
+        // Generate all icons on load
+        [16, 32, 180, 192, 512].forEach(size => drawIcon(size));
+    </script>
+</body>
+</html>
