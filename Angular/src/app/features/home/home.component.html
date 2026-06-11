@@ -1,0 +1,155 @@
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+  <!-- Background Blobs -->
+  <div class="blob-accent w-96 h-96 absolute top-20 -left-20 animate-pulse-glow"></div>
+  <div class="blob-secondary w-80 h-80 absolute bottom-20 -right-20 animate-float"></div>
+  
+  <div class="container mx-auto px-4 relative z-10">
+    <div class="text-center max-w-4xl mx-auto" appScrollReveal>
+      <!-- Greeting -->
+      <p class="section-label mb-4">Welcome to my portfolio</p>
+      
+      <!-- Name -->
+      <h1 class="text-hero-xl gradient-text mb-6">
+        {{ heroName }}
+      </h1>
+      
+      <!-- Title with Typing Effect -->
+      <h2 class="text-3xl md:text-5xl font-bold text-foreground mb-6">
+        {{ heroText }}
+        <span class="typing-cursor"></span>
+      </h2>
+      
+      <!-- Description -->
+      <p class="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+        {{ heroDescription }}
+      </p>
+      
+      <!-- CTA Buttons -->
+      <div class="flex flex-wrap gap-4 justify-center mb-12">
+        <button (click)="scrollToSection('projects')" class="btn-primary">
+          View My Work
+        </button>
+        <button (click)="downloadResume()" class="btn-outline">
+          Download Resume
+        </button>
+      </div>
+      
+      <!-- Quick Skills -->
+      <div class="flex flex-wrap gap-3 justify-center">
+        @for (skill of skills; track skill) {
+          <span class="tag-skill">{{ skill }}</span>
+        }
+      </div>
+    </div>
+  </div>
+  
+  <!-- Scroll Indicator -->
+  <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+    <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+    </svg>
+  </div>
+</section>
+
+<!-- Featured Projects Section -->
+<section id="projects" class="py-20 relative">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12" appScrollReveal>
+      <p class="section-label mb-4">Portfolio</p>
+      <h2 class="text-section-xl mb-4">Featured Projects</h2>
+      <p class="text-xl text-muted-foreground max-w-2xl mx-auto">
+        Here are some of my recent works
+      </p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      @for (project of featuredProjects; track project.id) {
+        <div class="glass-card project-card-hover rounded-xl overflow-hidden" appScrollReveal>
+          <!-- Project Image -->
+          <div class="relative h-48 overflow-hidden">
+            <img [src]="project.image" [alt]="project.title" 
+                 class="w-full h-full object-cover transition-transform duration-300 hover:scale-110">
+            <div class="absolute inset-0 bg-gradient-to-t from-background to-transparent"></div>
+          </div>
+          
+          <!-- Project Content -->
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">{{ project.title }}</h3>
+            <p class="text-muted-foreground mb-4">{{ project.description }}</p>
+            
+            <!-- Technologies -->
+            <div class="flex flex-wrap gap-2 mb-4">
+              @for (tech of project.technologies.slice(0, 3); track tech) {
+                <span class="tag-skill text-xs">{{ tech }}</span>
+              }
+            </div>
+            
+            <!-- Links -->
+            <div class="flex gap-3">
+              @if (project.liveUrl) {
+                <a [href]="project.liveUrl" target="_blank" 
+                   class="text-accent hover:underline text-sm font-bold">
+                  Live Demo →
+                </a>
+              }
+              @if (project.githubUrl) {
+                <a [href]="project.githubUrl" target="_blank" 
+                   class="text-accent hover:underline text-sm font-bold">
+                  GitHub →
+                </a>
+              }
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+    
+    <!-- View All Projects -->
+    <div class="text-center mt-12" appScrollReveal>
+      <a routerLink="/projects" class="btn-outline">
+        View All Projects
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Skills Overview Section -->
+<section class="py-20 bg-secondary/30">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12" appScrollReveal>
+      <p class="section-label mb-4">Expertise</p>
+      <h2 class="text-section-xl mb-4">Skills & Technologies</h2>
+    </div>
+    
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+      @for (skill of ['Frontend', 'Backend', 'Tools', 'Design']; track skill) {
+        <div class="glass-card text-center p-6 rounded-xl" appScrollReveal>
+          <div class="text-4xl mb-3">💻</div>
+          <h3 class="font-bold">{{ skill }}</h3>
+        </div>
+      }
+    </div>
+    
+    <div class="text-center mt-12" appScrollReveal>
+      <a routerLink="/about" class="btn-primary">
+        Learn More About Me
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-20">
+  <div class="container mx-auto px-4">
+    <div class="glass-card-strong accent-glow rounded-2xl p-12 text-center max-w-3xl mx-auto" appScrollReveal>
+      <h2 class="text-4xl md:text-5xl font-bold mb-4">Let's Work Together</h2>
+      <p class="text-xl text-muted-foreground mb-8">
+        I'm always open to discussing new projects and opportunities
+      </p>
+      <a routerLink="/contact" class="btn-primary">
+        Get In Touch
+      </a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,53 @@
+[
+  {
+    "id": "1",
+    "company": "Tech Solutions Inc.",
+    "position": "Senior Full-Stack Developer",
+    "location": "Remote",
+    "startDate": "2022-06-01",
+    "endDate": null,
+    "current": true,
+    "description": "Leading development of enterprise web applications using Angular and .NET Core",
+    "achievements": [
+      "Architected and developed 5+ production applications",
+      "Reduced application load time by 40% through optimization",
+      "Mentored 3 junior developers",
+      "Implemented CI/CD pipeline reducing deployment time by 60%"
+    ],
+    "technologies": ["Angular", "TypeScript", ".NET Core", "Azure", "Docker"]
+  },
+  {
+    "id": "2",
+    "company": "Digital Agency",
+    "position": "Frontend Developer",
+    "location": "New York, NY",
+    "startDate": "2020-03-01",
+    "endDate": "2022-05-31",
+    "current": false,
+    "description": "Developed responsive web applications for various clients",
+    "achievements": [
+      "Built 10+ client websites with modern frameworks",
+      "Improved website performance scores to 95+",
+      "Collaborated with design team to implement pixel-perfect UIs",
+      "Established frontend coding standards for the team"
+    ],
+    "technologies": ["React", "Angular", "Vue.js", "Sass", "Webpack"]
+  },
+  {
+    "id": "3",
+    "company": "StartUp XYZ",
+    "position": "Junior Web Developer",
+    "location": "San Francisco, CA",
+    "startDate": "2018-08-01",
+    "endDate": "2020-02-28",
+    "current": false,
+    "description": "Assisted in development of company's main product platform",
+    "achievements": [
+      "Developed reusable UI components library",
+      "Fixed 100+ bugs and improved code quality",
+      "Participated in agile development process",
+      "Learned best practices in software development"
+    ],
+    "technologies": ["JavaScript", "HTML", "CSS", "Bootstrap", "jQuery"]
+  }
+]

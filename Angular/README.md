@@ -1,59 +1,132 @@
-# ClientApp
+# FullyPorto Frontend
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.3.
+Modern portfolio application built with Angular 20, Tailwind CSS, and SSR support.
 
-## Development server
+## 🚀 Quick Start
 
-To start a local development server, run:
+### Prerequisites
+- Node.js 18+
+- npm 10+
 
-```bash
-ng serve
-```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### Installation
 
 ```bash
-ng generate component component-name
+npm install
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### Development
 
 ```bash
-ng generate --help
+npm start
 ```
 
-## Building
+Navigate to `http://localhost:4200/`
 
-To build the project run:
+### Build
 
 ```bash
-ng build
+# Production build
+npm run build
+
+# Development build
+npm run build:dev
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## 📦 Tech Stack
 
-## Running unit tests
+- **Framework:** Angular 20.3.0
+- **Styling:** Tailwind CSS with custom design system
+- **SSR:** Angular Universal
+- **Fonts:** Plus Jakarta Sans, Tajawal (Arabic)
+- **Icons:** (Add your icon library)
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+## 🎨 Design System
+
+Complete custom styling system with:
+- Glass morphism effects
+- Golden accent theme (#E8C547)
+- Dark/Light mode support
+- RTL support for Arabic
+- Custom animations and transitions
+- Responsive typography
+
+See [Styling Guide](../docs/styling-guide.md) for details.
+
+## 📁 Project Structure
+
+```
+src/
+├── app/               # Application components
+├── assets/            # Static assets
+├── environments/      # Environment configs
+├── styles.css         # Global styles + Tailwind
+└── index.html         # Main HTML file
+```
+
+## 🌐 Deployment
+
+### Netlify (Recommended)
 
 ```bash
-ng test
+# Install Netlify CLI
+npm install -g netlify-cli
+
+# Build and deploy
+npm run build
+netlify deploy --prod --dir=dist/ClientApp/browser
 ```
 
-## Running end-to-end tests
+See [Netlify Deployment Guide](../docs/netlify-deployment.md) for detailed instructions.
 
-For end-to-end (e2e) testing, run:
+### Other Platforms
 
-```bash
-ng e2e
-```
+- **Vercel:** `vercel deploy`
+- **Azure:** Use Azure Static Web Apps
+- **GitHub Pages:** Configure with `angular-cli-ghpages`
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## 🛠️ Available Scripts
 
-## Additional Resources
+- `npm start` - Development server (port 4200)
+- `npm run build` - Production build
+- `npm run build:dev` - Development build
+- `npm test` - Run unit tests
+- `npm run watch` - Build with watch mode
+- `npm run preview` - Preview production build
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## 🔧 Configuration Files
+
+- `angular.json` - Angular CLI configuration
+- `tailwind.config.js` - Tailwind CSS configuration
+- `netlify.toml` - Netlify deployment settings
+- `tsconfig.json` - TypeScript configuration
+
+## 🎯 Features
+
+- ✅ Server-Side Rendering (SSR)
+- ✅ Responsive design
+- ✅ Dark/Light theme
+- ✅ RTL support
+- ✅ SEO optimized
+- ✅ PWA ready
+- ✅ Performance optimized
+- ✅ Accessibility compliant
+
+## 📚 Documentation
+
+- [Getting Started](../docs/getting-started.md)
+- [Architecture](../docs/architecture.md)
+- [Frontend Guide](../docs/frontend-guide.md)
+- [Styling Guide](../docs/styling-guide.md)
+- [Deployment Guide](../docs/netlify-deployment.md)
+
+## 🤝 Contributing
+
+See [Contributing Guidelines](../CONTRIBUTING.md)
+
+## 📄 License
+
+MIT License - see [LICENSE](../LICENSE)
+
+---
+
+Built with ❤️ using Angular and Tailwind CSS

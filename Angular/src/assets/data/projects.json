@@ -1,0 +1,69 @@
+[
+  {
+    "id": "1",
+    "title": "E-Commerce Platform",
+    "description": "Full-stack e-commerce solution with payment integration",
+    "longDescription": "A comprehensive e-commerce platform built with Angular and .NET Core. Features include product management, shopping cart, secure checkout with Stripe integration, order tracking, and admin dashboard.",
+    "image": "/assets/images/projects/ecommerce.jpg",
+    "images": [
+      "/assets/images/projects/ecommerce-1.jpg",
+      "/assets/images/projects/ecommerce-2.jpg",
+      "/assets/images/projects/ecommerce-3.jpg"
+    ],
+    "category": "fullstack",
+    "technologies": ["Angular", "TypeScript", ".NET Core", "SQL Server", "Stripe"],
+    "liveUrl": "https://example.com",
+    "githubUrl": "https://github.com/yourusername/project",
+    "featured": true,
+    "date": "2024-01-15"
+  },
+  {
+    "id": "2",
+    "title": "Task Management App",
+    "description": "Collaborative task management with real-time updates",
+    "longDescription": "A real-time task management application with team collaboration features. Built with Angular and Firebase for instant synchronization across devices.",
+    "image": "/assets/images/projects/taskapp.jpg",
+    "images": [
+      "/assets/images/projects/taskapp-1.jpg",
+      "/assets/images/projects/taskapp-2.jpg"
+    ],
+    "category": "frontend",
+    "technologies": ["Angular", "Firebase", "RxJS", "Tailwind CSS"],
+    "liveUrl": "https://example.com",
+    "githubUrl": "https://github.com/yourusername/project",
+    "featured": true,
+    "date": "2024-02-20"
+  },
+  {
+    "id": "3",
+    "title": "REST API Backend",
+    "description": "Scalable REST API with authentication and authorization",
+    "longDescription": "A robust REST API built with .NET Core featuring JWT authentication, role-based authorization, and comprehensive API documentation with Swagger.",
+    "image": "/assets/images/projects/api.jpg",
+    "images": [
+      "/assets/images/projects/api-1.jpg"
+    ],
+    "category": "backend",
+    "technologies": [".NET Core", "Entity Framework", "JWT", "Swagger", "Docker"],
+    "githubUrl": "https://github.com/yourusername/project",
+    "featured": false,
+    "date": "2023-11-10"
+  },
+  {
+    "id": "4",
+    "title": "Portfolio Website",
+    "description": "Modern portfolio with dark mode and animations",
+    "longDescription": "A fully responsive portfolio website with dark/light theme, smooth animations, and SEO optimization. Built with Angular and Tailwind CSS.",
+    "image": "/assets/images/projects/portfolio.jpg",
+    "images": [
+      "/assets/images/projects/portfolio-1.jpg",
+      "/assets/images/projects/portfolio-2.jpg"
+    ],
+    "category": "frontend",
+    "technologies": ["Angular", "Tailwind CSS", "TypeScript"],
+    "liveUrl": "https://example.com",
+    "githubUrl": "https://github.com/yourusername/project",
+    "featured": true,
+    "date": "2024-03-05"
+  }
+]

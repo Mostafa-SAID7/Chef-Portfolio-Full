@@ -1,0 +1,179 @@
+<!-- About Hero -->
+<section class="py-20">
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <!-- Image -->
+      <div appScrollReveal>
+        <div class="relative">
+          <div class="blob-accent w-64 h-64 absolute -top-10 -left-10 -z-10"></div>
+          <img src="/assets/images/profile.jpg" alt="Profile" 
+               class="rounded-2xl w-full max-w-md mx-auto glass-card-strong p-2">
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div appScrollReveal>
+        <p class="section-label mb-4">About Me</p>
+        <h1 class="text-section-xl mb-6">I'm Mostafa SAID</h1>
+        <div class="space-y-4 text-lg text-muted-foreground">
+          <p>
+            A passionate Full-Stack Developer with expertise in building modern web applications. 
+            I specialize in Angular, .NET Core, and creating exceptional user experiences.
+          </p>
+          <p>
+            With {{ experiences().length }}+ years of experience, I've worked on diverse projects 
+            ranging from e-commerce platforms to enterprise applications, always focusing on 
+            clean code, performance, and user satisfaction.
+          </p>
+          <p>
+            When I'm not coding, you'll find me exploring new technologies, contributing to 
+            open-source projects, or sharing knowledge with the developer community.
+          </p>
+        </div>
+        <div class="flex gap-4 mt-8">
+          <button (click)="downloadResume()" class="btn-primary">
+            Download Resume
+          </button>
+          <a href="#skills" class="btn-outline">
+            View Skills
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Skills Section -->
+<section id="skills" class="py-20 bg-secondary/30">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12" appScrollReveal>
+      <p class="section-label mb-4">Expertise</p>
+      <h2 class="text-4xl font-bold mb-4">Skills & Technologies</h2>
+      <p class="text-xl text-muted-foreground">
+        Technologies I work with to bring ideas to life
+      </p>
+    </div>
+
+    @for (category of skillCategories; track category) {
+      @if (getSkillsByCategory(category).length > 0) {
+        <div class="mb-12" appScrollReveal>
+          <h3 class="text-2xl font-bold mb-6 capitalize">{{ category.replace('-', ' ') }}</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            @for (skill of getSkillsByCategory(category); track skill.name) {
+              <div class="glass-card rounded-xl p-6">
+                <div class="flex justify-between items-center mb-3">
+                  <h4 class="font-bold">{{ skill.name }}</h4>
+                  <span class="text-accent font-bold">{{ skill.level }}%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill active" 
+                       [style.transform]="'scaleX(' + skill.level / 100 + ')'"></div>
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+      }
+    }
+  </div>
+</section>
+
+<!-- Experience Timeline -->
+<section class="py-20">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12" appScrollReveal>
+      <p class="section-label mb-4">Journey</p>
+      <h2 class="text-4xl font-bold mb-4">Work Experience</h2>
+      <p class="text-xl text-muted-foreground">
+        My professional journey and career milestones
+      </p>
+    </div>
+
+    <div class="max-w-4xl mx-auto relative">
+      <!-- Timeline Line -->
+      <div class="timeline-line hidden md:block"></div>
+
+      <!-- Experience Items -->
+      @for (exp of experiences(); track exp.id; let i = $index) {
+        <div class="relative mb-12" appScrollReveal>
+          <div class="glass-card rounded-xl p-6 md:p-8" 
+               [class.md:ml-auto]="i % 2 !== 0" 
+               [class.md:w-[calc(50%-2rem)]="true">
+            <!-- Date Badge -->
+            <div class="inline-block mb-4">
+              <span class="tag-skill bg-accent text-accent-foreground">
+                {{ formatDate(exp.startDate) }} - {{ exp.current ? 'Present' : formatDate(exp.endDate!) }}
+              </span>
+            </div>
+
+            <!-- Position & Company -->
+            <h3 class="text-2xl font-bold mb-2">{{ exp.position }}</h3>
+            <p class="text-accent font-semibold mb-2">{{ exp.company }}</p>
+            <p class="text-muted-foreground mb-4">📍 {{ exp.location }}</p>
+
+            <!-- Description -->
+            <p class="text-muted-foreground mb-4">{{ exp.description }}</p>
+
+            <!-- Achievements -->
+            @if (exp.achievements.length > 0) {
+              <ul class="space-y-2 mb-4">
+                @for (achievement of exp.achievements; track achievement) {
+                  <li class="flex items-start gap-2 text-muted-foreground">
+                    <span class="text-accent mt-1">✓</span>
+                    <span>{{ achievement }}</span>
+                  </li>
+                }
+              </ul>
+            }
+
+            <!-- Technologies -->
+            <div class="flex flex-wrap gap-2">
+              @for (tech of exp.technologies; track tech) {
+                <span class="tag-skill text-xs">{{ tech }}</span>
+              }
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Stats Section -->
+<section class="py-20 bg-secondary/30">
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+      <div class="text-center glass-card rounded-xl p-6" appScrollReveal>
+        <div class="text-4xl font-bold gradient-text mb-2">{{ experiences().length }}+</div>
+        <p class="text-muted-foreground">Years Experience</p>
+      </div>
+      <div class="text-center glass-card rounded-xl p-6" appScrollReveal>
+        <div class="text-4xl font-bold gradient-text mb-2">50+</div>
+        <p class="text-muted-foreground">Projects Completed</p>
+      </div>
+      <div class="text-center glass-card rounded-xl p-6" appScrollReveal>
+        <div class="text-4xl font-bold gradient-text mb-2">30+</div>
+        <p class="text-muted-foreground">Happy Clients</p>
+      </div>
+      <div class="text-center glass-card rounded-xl p-6" appScrollReveal>
+        <div class="text-4xl font-bold gradient-text mb-2">{{ skills().length }}+</div>
+        <p class="text-muted-foreground">Technologies</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-20">
+  <div class="container mx-auto px-4">
+    <div class="glass-card-strong accent-glow rounded-2xl p-12 text-center max-w-3xl mx-auto" appScrollReveal>
+      <h2 class="text-4xl font-bold mb-4">Interested in Working Together?</h2>
+      <p class="text-xl text-muted-foreground mb-8">
+        Let's create something amazing together
+      </p>
+      <a href="/contact" class="btn-primary">
+        Get In Touch
+      </a>
+    </div>
+  </div>
+</section>
