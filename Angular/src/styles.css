@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Tajawal:wght@300;400;500;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -21,8 +21,8 @@
   --input: #1A1A1A;
   --ring: #E8C547;
   --radius: 0.75rem;
-  --font-sans: 'Plus Jakarta Sans', sans-serif;
-  --font-arabic: 'Tajawal', sans-serif;
+  --font-sans: 'Saira', sans-serif;
+  --font-arabic: 'Saira', sans-serif;
 }
 
 .light {
@@ -52,7 +52,7 @@
   body {
     background-color: var(--background);
     color: var(--foreground);
-    font-family: var(--font-sans);
+    font-family: 'Saira', var(--font-sans), sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     transition: background-color 0.3s ease, color 0.3s ease;

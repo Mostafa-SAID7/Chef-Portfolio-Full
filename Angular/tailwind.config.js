@@ -46,9 +46,9 @@ module.exports = {
         '2xl': 'calc(var(--radius) + 12px)',
       },
       fontFamily: {
-        sans: ['var(--font-sans)', 'sans-serif'],
-        arabic: ['var(--font-arabic)', 'sans-serif'],
-        mono: ['JetBrains Mono', 'monospace'],
+        sans: ['Saira', 'var(--font-sans)', 'sans-serif'],
+        arabic: ['Saira', 'var(--font-arabic)', 'sans-serif'],
+        mono: ['Saira', 'JetBrains Mono', 'monospace'],
       },
       animation: {
         'float': 'float 4s ease-in-out infinite',
