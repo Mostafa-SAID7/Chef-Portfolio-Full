@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, signal, effect } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { ThemeService } from '../../../core/services/theme.service';
@@ -23,6 +23,17 @@ export class HeaderComponent {
     { path: '/projects', label: 'Projects', labelAr: 'المشاريع' },
     { path: '/contact', label: 'Contact', labelAr: 'اتصل' }
   ];
+
+  constructor() {
+    // Handle body scroll when menu opens/closes
+    effect(() => {
+      if (this.mobileMenuOpen()) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
+    });
+  }
 
   toggleMobileMenu(): void {
     this.mobileMenuOpen.update(val => !val);

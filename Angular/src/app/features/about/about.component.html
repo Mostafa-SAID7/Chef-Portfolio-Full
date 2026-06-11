@@ -97,8 +97,7 @@
       @for (exp of experiences(); track exp.id; let i = $index) {
         <div class="relative mb-12" appScrollReveal>
           <div class="glass-card rounded-xl p-6 md:p-8" 
-               [class.md:ml-auto]="i % 2 !== 0" 
-               [class.md:w-[calc(50%-2rem)]="true">
+               [class]="i % 2 !== 0 ? 'md:ml-auto md:w-[calc(50%-2rem)]' : 'md:mr-auto md:w-[calc(50%-2rem)]'">
             <!-- Date Badge -->
             <div class="inline-block mb-4">
               <span class="tag-skill bg-accent text-accent-foreground">

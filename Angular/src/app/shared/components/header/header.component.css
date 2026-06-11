@@ -1,1 +1,53 @@
 /* Header specific styles */
+
+/* Mobile menu animations */
+.mobile-menu-overlay {
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Smooth transitions */
+.mobile-menu-overlay nav a {
+  opacity: 0;
+  animation: slideInFromRight 0.4s ease-out forwards;
+}
+
+.mobile-menu-overlay nav a:nth-child(1) { animation-delay: 0.1s; }
+.mobile-menu-overlay nav a:nth-child(2) { animation-delay: 0.2s; }
+.mobile-menu-overlay nav a:nth-child(3) { animation-delay: 0.3s; }
+.mobile-menu-overlay nav a:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* RTL animations */
+[dir="rtl"] .mobile-menu-overlay nav a {
+  animation: slideInFromLeft 0.4s ease-out forwards;
+}
+
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
